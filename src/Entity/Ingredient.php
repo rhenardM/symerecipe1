@@ -18,7 +18,7 @@ class Ingredient
 
     #[ORM\Column(length: 50 )]
     #[Assert\NotBlank()]
-    #[Assert\length (min :2, max: 50)]
+    #[Assert\Length (min :2, max: 50)]
     private ?string $name = null;
 
     #[ORM\Column]
