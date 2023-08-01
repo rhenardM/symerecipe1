@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes ingredients{% endblock %}
+
+{% block body %}
+<main id="main" class="main">
+    <div class="pagetitle">
+      <h1>Liste des ingredients</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <!--<li class="breadcrumb-item"><a href=""></a></li>
+          <li class="breadcrumb-item"></li>
+          <li class="breadcrumb-item active"></li>-->
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+   <div class=" d-flex justify-content">
+              <a class="btn btn-primary btn-sm" href="{{ path('ingredient.new') }}"><i class="bi bi-plus-lg"></i> Nouveau</a>
+    </div><!-- End Logo --> <br>
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+                    <table class="table datatable">
+                        <thead>
+                        <tr>
+                            <th scope="col">Numéro</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Prix</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for ingredient in ingredients %}
+                        <tr>
+                            <th scope="row">{{ ingredient.id }}</th>
+                            <td>{{ ingredient.name }}</td>
+                            <td>{{ ingredient.price }}</td>
+                            <td>{{ ingredient.createdAt|date('d/m/y') }}</td>
+                            <td>
+                              <div class=" d-flex justify-content">   
+                                <a class="bi bi-eye-fill" href=""></a>&nbsp;&nbsp;
+                                <a class="bi bi-pencil-square" href=""></a>
+                              </div>
+                            </td>
+                        {% endfor %}
+                        </tr>
+                        </tbody>
+                    </table>
+    </div>
+        </div>
+    </section>
+  </main><!-- End #main -->
+    </div>
+{% endblock %}
